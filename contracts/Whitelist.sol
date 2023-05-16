@@ -2,15 +2,10 @@
 pragma solidity ^0.8.9;
 
 contract Whitelist {
-    /*
-     - number max whitelist
-     - save address to white list
-    */
-
     uint256 public numMaxWhitelist;
-    mapping(address => bool) whiteList;
-
     uint256 numCurrentWhiteList;
+    mapping(address => bool) whiteList;
+    address[] public whitelistedAddresses;
 
     constructor(uint256 _numMaxWhitelist) {
         numMaxWhitelist = _numMaxWhitelist;
@@ -22,7 +17,20 @@ contract Whitelist {
             "Quantity Address Max Whitelist"
         );
         require(!whiteList[msg.sender], "You exist Whitelist");
+        whitelistedAddresses.push(msg.sender);
         whiteList[msg.sender] = true;
         numCurrentWhiteList++;
+    }
+
+    function checkWhiteList() external view returns (bool) {
+        return whiteList[msg.sender];
+    }
+
+    function getNumberWhiteList() external view returns (uint256) {
+        return numCurrentWhiteList;
+    }
+
+    function listWhiteList() external view returns (address[] memory) {
+        return whitelistedAddresses;
     }
 }

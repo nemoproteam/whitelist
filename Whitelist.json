@@ -1,0 +1,14 @@
+{
+  "contract": {
+    "signerAddress": "0xa14796784153d294F1BB5Cab47aE19fc0D25b6E1",
+    "abi": [
+      "constructor(uint256 _numMaxWhitelist)",
+      "function checkWhiteList() view returns (bool)",
+      "function getNumberWhiteList() view returns (uint256)",
+      "function handleWhiteList()",
+      "function listWhiteList() view returns (address[])",
+      "function numMaxWhitelist() view returns (uint256)",
+      "function whitelistedAddresses(uint256) view returns (address)"
+    ]
+  }
+}
