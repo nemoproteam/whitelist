@@ -51,7 +51,7 @@ function App() {
   return (
     <div className="App" style={{ textAlign: "center" }}>
       <button onClick={connectWallet} className="">
-        Connect Metamask
+        {address ? address : "Connect Metamask"}
       </button>
       <div className="">
         <div className="">
